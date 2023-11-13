@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" href="css/basiclayout.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+        <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans&display=swap" rel="stylesheet">
+        <script src="coffeecalc.js"></script>
+        <title>Jitterbug Cafe: Mini Coffee Shop Simulator Game</title>
+    </head>
+    <body>
+        <!--picture banner above navigational bar-->
+        <div class="banner"><img src="https://assets.epicurious.com/photos/63e54a0664e14d52936a2937/16:9/w_2560%2Cc_limit/CoffeeSubscriptions_IG_V1_030922_6350_V1_final.jpg"></div>
+        <!--navigational bar-->
+        <div class="navbar">
+            <ul>
+                <li><a href="main.html">Home</a></li>
+                <li><a href="coffeeshop.html">Jitterbug Cafe Game</a></li>
+                <li><a href="fullLeaderboard.html">Full Leaderboard</a></li>
+                <li><a href="account.html">Account</a></li>
+            </ul>
+        </div>
+
+        <h1>JitterBug Cafe: Mini Coffee Shop Simulator Game</h1>
+        <!--area that displays the game-->
+        <div class="thegame">
+            <canvas width="1000" height="550" id="game">
+                
+            </canvas>
+        </div>
+        <!--Game rules and instructions box-->
+        <div class="rules">
+            <h2>Game Rules & Instructions</h2>
+            <h4>These are the basic rules of the game! Follow them carefully!</h4>
+            <ol>
+                <li>This game requires you to be signed in to play and record scores.</li>
+                <li>There are 5 levels to this game, with each harder than the last.</li>
+                <li>You will have a time limit of 5 minutes, which decreases by 30 seconds every level.</li>
+                <li>The complexity of the drink increases with level as well.</li>
+                <li>The goal is to make as many drinks (correctly) as you can within the time limit.</li>
+                <li>For every correct cup made, you gain 50 points. Incorrectly subitted cups are -20 points.</li>
+                <li> You will have an opportunity to fix inccorrect drinks.</li>
+                <li>When the level is finished, you can either restart the level, or move on to the next.</li>
+                <li>Only highest score achieved at end of level will remain regardless of #of attempts.</li>
+                <li>When all levels are finished, total score will be determined, and rank given based on score.</li>
+                <li>You can change this score/rank by improving the scores of each level.</li>
+                <li>Your score and rank, along with your name will be posted on the leaderboard.</li>
+                <li>Only top 5 will be featured on the home page.</li>
+                <li>Leaderboard resets every week.</li>
+            </ol>
+        </div>
+        <script src="js/coffeecalc.js"></script>
+    </body>
+</html>
