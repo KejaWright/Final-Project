@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var start = 0;//FOR TIMER//
 //BUTTON CLICK NOISES//
 function playSound() {
@@ -52,12 +51,13 @@ $('#start-button').click(function(){
     //PAUSE BUTTON ONLY PAUSE BECAUSE OF ALERT BE AWARE//
     $('#pause-button').click(function(){
         gamePaused = !gamePaused;
-        alert('Game Paused');
-        console.log("Game is paused.");
+        alert('Game is paused. Click OK to continue game.');
+        console.log("Game paused.");
     })
 
-    //NEXT LEVEL FUNCTION//
+    //NEXT LEVEL BUTTON FUNCTION//
     $('#next-lvl').click(function nextLevel() {
+        rtarray = [];
         currentLevel++;
         document.getElementById('current-level').innerText = currentLevel;
         totalScore = totalScore;
@@ -78,8 +78,9 @@ $('#start-button').click(function(){
         }
     });
 
-    //RETRY LEVEL FUNCTION//
+    //RETRY LEVEL BUTTON FUNCTION//
     $('#retry').click(function(){
+        rtarray = [];
         document.getElementById('current-level').innerText = currentLevel;
         currentScore = 0;
         curfinscore = 0;
@@ -92,8 +93,9 @@ $('#start-button').click(function(){
         updateCountdown();
     })
 
-    //RESET LEVEL FUNCTION//
+    //RESET LEVEL BUTTON FUNCTION//
     $('#res-game').click(function(){
+        rtarray = [];
         currentLevel = 1;
         currentScore = 0;
         curfinscore = 0;
@@ -110,11 +112,11 @@ $('#start-button').click(function(){
 
     //STUFF FOR REGISTERING CLICKING THE AVAILABLE BUTTONS FOR THE INGREDIENTS//
     function getIngredientName(index) {
-        const allIngredients = ['sugar', 'bean', 'caramel', 'chips', 'wcream'];
+        const allIngredients = ['sugar', 'bean', 'caramel', 'chips', 'wcream'];//all types of ingredients
         return allIngredients[index - 1];
     }
 
-    function displayIngredients() { //shows the ingredients on the left side
+    function displayIngredients() { //SHOWS INGREDIENTS ON THE LEFT SIDE OF THE GAME IN RED BOX
         const ingredientsList = document.getElementById('ingredients-list');
         ingredientsList.innerHTML = '';
         for (let i = 1; i <= ingredperlvl; i++) {
@@ -138,7 +140,7 @@ $('#start-button').click(function(){
         }
     }
 
-    function updateIngredientDisplay() {//DISPLAYS CHOSEN INGREDIENT IN COFFEE CUP
+    function updateIngredientDisplay() {//DISPLAYS INGREDIENTS CHOSE BY THE PLAYER IN COFFEE CUP
         const ingredientDisplay = document.getElementById('ingredient-display');
         ingredientDisplay.innerHTML = `Ingredients Placed: ${chosenIngred.join(', ')}`;
         console.log(chosenIngred);
@@ -151,8 +153,8 @@ $('#start-button').click(function(){
         const randomAmount = Math.floor(Math.random() * 3) + 1; // Random amount between 1 and 3
         const randomIngredientIndex = Math.floor(Math.random() * 2) + 1; // Random index for unlocked ingredients
         const randomIngredient = getIngredientName(randomIngredientIndex);
-        rtarray.push(randomIngredient);
-        console.log(randomIngredient);
+        rtarray = Array.from({ length: randomAmount }, () => randomIngredient);
+        console.log(rtarray);
         drinkTicket.innerText = `Add ${randomAmount} units of ${randomIngredient}`;
     }
     
@@ -293,30 +295,3 @@ $('#start-button').click(function(){
 
 
 });
-=======
-// put data in database after all the playing is done
-//rtghy@gmail.com 123werZXS;']
-
-const firebaseConfig = {
-
-  apiKey: "AIzaSyD3xx7nx749QdAVXwvKw6V4IRIAlTUO-Lk",
-
-  authDomain: "csci-225-final-project-a-bb0d1.firebaseapp.com",
-
-  projectId: "csci-225-final-project-a-bb0d1",
-
-  storageBucket: "csci-225-final-project-a-bb0d1.appspot.com",
-
-  messagingSenderId: "691914384953",
-
-  appId: "1:691914384953:web:b910332ffe97e93ef50fe8",
-
-  measurementId: "G-W41900LN38"
-
-};
-
-
-// Initialize Firebase
-firebase.initializeApp(firebaseConfig);
-
->>>>>>> 41140ebcfaa26fc087fc6981dfb5f7c349963e6a
