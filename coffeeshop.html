@@ -3,6 +3,7 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="css/basiclayout.css">
+        <link rel="stylesheet" href="css/gamelayout.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
         <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans&display=swap" rel="stylesheet">
         <script src="coffeecalc.js"></script>
@@ -12,9 +13,9 @@
     </head>
     <body>
         <!--picture banner above navigational bar-->
-        <div class="banner"><img src="https://assets.epicurious.com/photos/63e54a0664e14d52936a2937/16:9/w_2560%2Cc_limit/CoffeeSubscriptions_IG_V1_030922_6350_V1_final.jpg"></div>
+        <div class="banner2"><img src="https://assets.epicurious.com/photos/63e54a0664e14d52936a2937/16:9/w_2560%2Cc_limit/CoffeeSubscriptions_IG_V1_030922_6350_V1_final.jpg" style="position: absolute;"></div>
         <!--navigational bar-->
-        <div class="navbar">
+        <div class="navbar2">
             <ul>
                 <li><a href="main.html">Home</a></li>
                 <li><a href="coffeeshop.html">Jitterbug Cafe Game</a></li>
@@ -25,47 +26,63 @@
 
         <h1>JitterBug Cafe: Mini Coffee Shop Simulator Game</h1>
         <!--area that displays the game-->
+        
         <div class="thegame">
-            <input type="button" value ="start" id="start-button">
-            <div id="order-menu">
-                <p id="order-title">ORDER</p>
-                <div id="ticket">
-                    <span>Order #:</span>
-                    <table></table>
-                    <p>BLEND TYPE</p>
-                    <span id="order-blend-type"></span>
-                </div>
-                <div id="order-sub-res">
-                    <input type="button" value="SUBMIT ORDER" id="sub-ord">
-                    <input type="button" value="RESET DRINK" id="res-ord">
-                </div>
-            </div>
-            <div id="ingredients">
-                <p id="ingred-title">Ingredients</p>
-                <table></table>
-            </div>
-            <div id="top-shelf">
-                <select name="Level" id="levels">
-                    <option value="level 1">Lvl 1</option>
-                    <option value="level 2">Lvl 2</option>
-                    <option value="level 3">Lvl 3</option>
-                    <option value="level 4">Lvl 4</option>
-                    <option value="level 5">Lvl 5</option>
-                </select>
-                <span>Current Lvl Score: </span>
-                <span>Total Score: </span>
-                <span>Time: </span>
-            </div>
-            <div id="blend menu">
-                <p>Blend Type</p>
-                <input type="button" value="HEAVY" id="heavy">
-                <input type="button" value="MEDIUM" id="medium">
-                <input type="button" value="SOFT" id="soft">
-            </div>
-            <canvas width="1000" height="550" id="game" style="display: none">
-                
-            </canvas>
+            <!--button click noises-->
+            <audio id="clickSound" src="video/button-noise.wav"></audio>
+
+            <input type="button" value ="start" id="start-button" onclick="playSound()">
+
+            <section id="finishlvl" style="display: none;">
+                <h3>LEVEL COMPLETE</h3>
+                <label>Current Score: <span id="current-score">0</span></label>
+                <label>Total Score: <span id="total-score">0</span></label>
+                <button id="retry">Retry</button>
+                <button id="next-lvl">Next Level</button>
+                <button id="res-game">Reset Game</button>
+            </section>
+
+            <section id="display-game" style="display: none;">
+                <section id="top-shelf"><!--TOP ROW IN GAME-->
+                    <section class="score-section">
+                        <label>Level: <span id="current-level">1</span></label>
+                        <label>Current Score: <span id="currentscore">0</span></label>
+                        <label>Total Score: <span id="totalscore">0</span></label>
+                        <label>Time: <span id="timer">?</span> seconds</label>
+                        <button onclick="playSound()" id="pause-button">Pause</button>
+                    </section>
+                </section> 
+
+                <section class="ticket-section">
+                    <h3>Randomized Drink Ticket</h3>
+                    <p id="drink-ticket"></p>
+                    <section class="controls-section">
+                        <button id="make-coffee-but" onclick="playSound()" onclick="makeCoffee()">Make Coffee</button>
+                        <button id="reset-coffee-but" onclick="playSound()" onclick="resetDrink()">Reset Coffee</button>
+                    </section>
+                </section> 
+
+                <section class="ingredients-section">
+                    <h3>Ingredients</h3>
+                    <section id="ingredients-list"></section>
+                </section>
+        
+                <section id="blend-section">
+                    <h3>Choose Blend</h3>
+                    <button value="light" id="light" onclick="playSound()">Light</button>
+                    <button value="med" id="med" onclick="playSound()">Medium</button>
+                    <button value="dark" id="dark" onclick="playSound()">Dark</button>
+                </section>
+        
+                <section class="coffee-cup-section">
+                    
+                    <section id="coffee-cup">
+                        <p id="ingredient-display">Ingredients Placed:</p>
+                    </section>
+                </section>
+            </section>
         </div>
+
         <!--Game rules and instructions box-->
         <div class="rules">
             <h2>Game Rules & Instructions</h2>
@@ -73,12 +90,12 @@
             <ol>
                 <li>This game requires you to be signed in to play and record scores.</li>
                 <li>There are 5 levels to this game, with each harder than the last.</li>
-                <li>You will have a time limit of 5 minutes, which decreases by 30 seconds every level.</li>
+                <li>You will have a time limit of 3 minutes, which decreases by 30 seconds every level.</li>
                 <li>The complexity of the drink increases with level as well.</li>
                 <li>The goal is to make as many drinks (correctly) as you can within the time limit.</li>
                 <li>For every correct cup made, you gain 50 points. Incorrectly subitted cups are -20 points.</li>
-                <li> You will have an opportunity to fix inccorrect drinks.</li>
-                <li>When the level is finished, you can either restart the level, or move on to the next.</li>
+                <li>You can reset your drink if you mess up.</li>
+                <li>When the level is finished, you can either retry the level, restart the game, or move on to the next.</li>
                 <li>Only highest score achieved at end of level will remain regardless of #of attempts.</li>
                 <li>When all levels are finished, total score will be determined, and rank given based on score.</li>
                 <li>You can change this score/rank by improving the scores of each level.</li>
@@ -88,30 +105,5 @@
             </ol>
         </div>
         <script src="js/coffeecalc.js"></script>
-
-        <!--FIREBASE STUFF DON'T CHANGE OR ELSE-->
-        <script type="module">
-            // Import the functions you need from the SDKs you need
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-            import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js";
-            // TODO: Add SDKs for Firebase products that you want to use
-            // https://firebase.google.com/docs/web/setup#available-libraries
-          
-            // Your web app's Firebase configuration
-            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-            const firebaseConfig = {
-              apiKey: "AIzaSyBctDZdPnj1vp5na3aQJ_6xl27wzSSL5B4",
-              authDomain: "coffeedatabase-ffd29.firebaseapp.com",
-              projectId: "coffeedatabase-ffd29",
-              storageBucket: "coffeedatabase-ffd29.appspot.com",
-              messagingSenderId: "411913126036",
-              appId: "1:411913126036:web:65c21d93a7932ff9767481",
-              measurementId: "G-B10YV3KWMN"
-            };
-          
-            // Initialize Firebase
-            const app = initializeApp(firebaseConfig);
-            const analytics = getAnalytics(app);
-          </script>
     </body>
 </html>

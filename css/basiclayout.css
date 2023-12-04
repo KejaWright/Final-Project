@@ -20,19 +20,29 @@ div.about, div.smallLeader, div.devs, div.logsign, div.thegame, div.rules, div.f
     padding: 10px;
     border-radius: 25px;
 }
-div.banner, div.navbar{
-    position:fixed;
+div.banner, div.navbar, div.banner2, div.navbar2{
     padding:0%;
     left:0%;
     width: 100%;
     z-index: 5;
 }
+
 div.banner{
+    position:fixed;
+    top:0vh;
+    height:10vh;
+}
+div.banner2{
+    position: absolute;
     top:0vh;
     height:10vh;
 }
 div.navbar{
-    left:0%;
+    position:fixed;
+    top:10vh;
+}
+div.navbar2{
+    position: absolute;
     top:10vh;
 }
 h1{
@@ -97,11 +107,12 @@ div.logsign{
 }
 div.thegame{
     top:30vh;
-    left: 17vw;
-    height:auto;
+    left: 15vw;
+    width: 70vw;
+    height: 85vh;
 }
 div.rules{
-    top:120vh;
+    top:130vh;
     left:15vw;
     width:70vw;
     height:auto;
@@ -134,12 +145,12 @@ body{
     padding: 10px;
     background-image: url(../img/bgmain.png);
 }
-div.banner img{
+div.banner img, .banner2 img{
     width: 100%;
     height: 100%;
     object-fit: cover;
 }
-div.navbar{
+div.navbar, .navbar2{
     background-color: black;
 }
 

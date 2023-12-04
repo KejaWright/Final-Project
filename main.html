@@ -54,47 +54,22 @@
         <div class="logsign">
             <h2 id="createac">Create Account/ Login</h2>
             <form id="newacc" style="width:100%; position:relative; top: -8vh;">
-                <label for="username">Username:</label>
-                <label for="username" id="notification-username-label"></label>
-                <input type="text" id="username" required minlength="5" maxlength="8" pattern="(?=.*[a-z\\_])(?=.*[A-Z])+$.{8,}"><!--must have At least 1 upper/lowercase letter; min/max-->
-
+                <label for="email">Email:</label>
+                <input type="email" id="email" placeholder="name@domain.com" required>
+                <label for="username" class="form-control-label">Username:</label>
+                <input type="text" id="username" required minlength="5" maxlength="8">
                 <label for="password" class="form-control-label">Password:</label>
-                <label for="password" id="notification-password-label"></label>
-                <input type="password" id="password" required minlength="8" maxlength="12" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"-><!--Max/min; Needs @least 1 num, upper/lowercase letter-->
-                <input type="submit" id="create-account-button" value="create account" style="background-color: orange; width:100%; height: 27px; border-radius: 25px;">
+                <input type="password" id="password" required minlength="8" maxlength="12"
+                    placeholder="password must have at least 1 number, 1 uppercase letter, and 1 lowercase letter"
+                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"><!--Max/min; Needs @least 1 num, upper/lowercase letter-->
+                <input type="submit" id="create-account-button" value="create account"
+                    style="background-color: orange; width:100%; height: 27px; border-radius: 25px;">
                 <p> or </p>
-                <input type="button" id="login-button" value="login" style="background-color: yellow; width:100%; height: 27px; border-radius: 25px;">
+                <input type="button" id="login-button" value="login"
+                    style="background-color: yellow; width:100%; height: 27px; border-radius: 25px;">
             </form>
         </div>
         <script src="js/coffeecalc.js"></script>
-
-        <!--FIREBASE STUFF DON'T CHANGE OR ELSE-->
-        <script type="module">
-            // Import the functions you need from the SDKs you need
-            import { initializeApp } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-app.js";
-            import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.6.0/firebase-analytics.js";
-            
-            // TODO: Add SDKs for Firebase products that you want to use
-            // https://firebase.google.com/docs/web/setup#available-libraries
-            
-          
-            // Your web app's Firebase configuration
-            // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-            const firebaseConfig = {
-              apiKey: "AIzaSyBctDZdPnj1vp5na3aQJ_6xl27wzSSL5B4",
-              authDomain: "coffeedatabase-ffd29.firebaseapp.com",
-              projectId: "coffeedatabase-ffd29",
-              storageBucket: "coffeedatabase-ffd29.appspot.com",
-              messagingSenderId: "411913126036",
-              appId: "1:411913126036:web:65c21d93a7932ff9767481",
-              measurementId: "G-B10YV3KWMN"
-            };
-          
-            // Initialize Firebase
-            const app = initializeApp(firebaseConfig);
-            const analytics = getAnalytics(app);
-        </script>
-        <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app-compat.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore-compat.js"></script>
+        <script src="js/create_account.js"></script>
     </body>
 </html>

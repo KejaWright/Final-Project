@@ -1,0 +1,107 @@
+/*MAIN Layout*/
+h3{
+    text-align: center;
+}
+#display-game{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: .5fr 2.5fr 2.5fr 1fr;
+    background-color: white;
+    top:30vh;
+    left: 15vw;
+    width: 70vw;
+    height: 85vh;
+}
+#top-shelf{
+    padding:10px;
+    grid-row-start: 1;
+    grid-column-start: 1;
+    grid-column-end: span 4;
+    background-color: orange;
+}
+section.ticket-section{
+    padding:5px;
+    grid-row-start: 2;
+    grid-row-end: span 3;
+    background-color: red;
+}
+#blend-section{
+    padding:5px;
+    grid-row-start: 4;
+    grid-column-start: 2;
+    grid-column-end: span 2;
+    background-color: orange;
+}
+
+section.ingredients-section{
+    padding:5px;
+    grid-column-start: 4;
+    grid-row-start: 2;
+    grid-row-end: span 3;
+    background-color: red;
+}
+.coffee-cup-section{
+    grid-row-start: 2;
+    grid-column-start: 2;
+    grid-column-end: span 2;
+    grid-row-end: span 2;
+}
+input[type=button]{
+    border-radius: 10px;
+}
+
+/*TOP SHELF SPECIAL LAYOUT AND DESIGN*/
+section.score-section p{
+    width: 10vw;
+}
+
+/*ORDER-MENU SPECIAL LAYOUT AND DESIGN*/
+#drink-ticket{
+    border-style:ridge;
+    width:20vw;
+    height:50vh;
+    background-color: white;
+}
+#make-coffee-but, #reset-coffee-but{
+    width:100%;
+}
+
+/*COFFEE CUP DISPLAY AND INGREDIENTS PLACED DISPLAY*/
+#coffee-cup{
+    border-style: dotted;
+    top:15vh;
+    left: 25%;
+    width: 200px;
+    height: 250px;
+    background-color: #8B4513;
+    border-radius: 10px;
+    position: relative;
+    margin-bottom: 10px;
+}
+
+/*BLEND-MENU SPECIAL LAYOUT AND DESIGN*/
+input.blendbut{
+    vertical-align: bottom;
+    display: inline-block;
+    text-align: center;
+    width:10vw;
+}
+input[type=button]:hover, button:hover{
+    background-color:yellow;
+}
+
+/*INGREDIENT MENU SPECIAL LAYOUT AND DESIGN*/
+#ingredients-list button{
+    width:60px;
+    height:60px;
+    background-color: inherit;
+    border: none;
+}
+#ingredients-list img{
+    width:40px;
+    height:40px;
+}
+#ingredients-list img:hover {
+    width:45px;
+    height:45px;
+}
