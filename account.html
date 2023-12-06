@@ -1,43 +1,62 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="css/basiclayout.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
-        <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans&display=swap" rel="stylesheet">
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
-        <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.css" />
-        <title>Your Account</title>
-    </head>
-    <body>
-        <!--picture banner above navigational bar-->
-        <div class="banner"><img src="https://assets.epicurious.com/photos/63e54a0664e14d52936a2937/16:9/w_2560%2Cc_limit/CoffeeSubscriptions_IG_V1_030922_6350_V1_final.jpg"></div>
-        <!--navigational bar-->
-        <div class="navbar">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="coffeeshop.html">Jitterbug Cafe Game</a></li>
-                <li><a href="fullLeaderboard.html">Full Leaderboard</a></li>
-                <li><a href="account.html">Account</a></li>
-            </ul>
-        </div>
-        <h1>Your Account</h1>
-        <!--Profile box-->
-        <div class="profile">
-            <h2>Profile</h2>
-            <!--should display name and email of player thats all-->
-            <input type="button" value="Logout" style="background-color:greenyellow; width:47%; height: 5vh; border-radius: 25px;">
-        </div>
-        <!--Settings box-->
-        <div class="settings">
-            <h2>Settings</h2>
-            <form style="position:relative; top:-6vh;">
-                <h3>DELETE ACCOUNT</h3>
-                    <label>Enter Username:</label><input type="text" id="newname">
-                <h3>Change Password</h3>
-                    <label>Enter Email:</label><input type="email" id="retypemail"><label>Enter Password:</label><input type="password" id="rtypepass">
-                <input type="button" value="delete account" style="background-color: red; color: white; width:47%; height:5vh; border-radius: 25px;">
-            </form>
-        </div>
-    </body>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="css/basiclayout.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.css" />
+    <title>Your Account</title>
+</head>
+<body>
+    <!-- Picture banner above navigational bar -->
+    <div class="banner">
+        <img src="https://assets.epicurious.com/photos/63e54a0664e14d52936a2937/16:9/w_2560%2Cc_limit/CoffeeSubscriptions_IG_V1_030922_6350_V1_final.jpg">
+    </div>
+
+    <!-- Navigational bar -->
+    <div class="navbar">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="coffeeshop.html">Jitterbug Cafe Game</a></li>
+            <li><a href="fullLeaderboard.html">Full Leaderboard</a></li>
+            <li><a href="account.html">Account</a></li>
+        </ul>
+    </div>
+
+    <h1>Your Account</h1>
+
+    <!-- Settings Box -->
+    <div class="settings">
+        <h2>Settings</h2>
+        <form>
+            <div class="form-group">
+                <label for="newname">Change name:</label>
+                <input type="text" id="newname">
+            </div>
+            <div class="form-group">
+                <label for="retypedpass">Retype Current Password:</label>
+                <input type="password" id="retypedpass">
+            </div>
+            <div class="form-group">
+                <label for="newpass">New Password:</label>
+                <input type="password" id="newpass">
+            </div>
+
+
+
+<!-- Sign Out/Logout Button -->
+<button type="button" class="logout-btn">Sign Out/Logout</button>
+
+<!-- Submit Changes Button -->
+<input type="button" value="Submit Changes" class="submit-btn">
+
+<!-- Delete Account Button -->
+<input type="button" value="Delete Account" class="delete-btn">
+</form>
+</div>
+</body>
 </html>
