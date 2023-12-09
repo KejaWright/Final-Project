@@ -10,8 +10,7 @@
 /*00: Variables*/
 :root{
     --main-tab-color: hsla(27, 70%, 82%, 1);
-    --main-font-color: white;
-    
+    --main-font-color: white; 
 }
 
 /*01: Layouts*/
@@ -26,7 +25,6 @@ div.banner, div.navbar, div.banner2, div.navbar2{
     width: 100%;
     z-index: 5;
 }
-
 div.banner{
     position:fixed;
     top:0vh;
@@ -39,7 +37,7 @@ div.banner2{
 }
 div.navbar{
     position:fixed;
-    top:10vh;
+    top: 74px;
 }
 div.navbar2{
     position: absolute;
@@ -49,32 +47,32 @@ h1{
     color:white;
     background-color: black;
     position: absolute;
-    top:17vh;
+    top:130px;
     left: 25vw;
     width:50vw;
     animation: 5s alternate infinite copycolor;}
 h2{
-    top:-8vh;
+    top:-60px;
     height:35px;
     position:relative;
-    width:30vw;
+    width:360px;
     left:10%;
     border-radius: 20px 20px 0px 0px;
 	background-color: var(--main-tab-color);
 }
 
 div.about{
-    top: 34vh;
-    left:1%;
-    width: 50vw;
-    height: 50vh;
+    top: 270px;
+    left:10px;
+    width: 50%;
+    height: 360px;
 }
 
 div.devs{
-    left:1%;
-    top: 95vh;
-    width:50vw;
-    height: 30vh;    
+    left: 10px;
+    top: 710px;
+    width: 50%;
+    height: 220px;    
 }
 div.item{
     vertical-align: top;
@@ -94,49 +92,49 @@ div.item span{
     display: block;
 }
 div.smallLeader{
-    top: 34vh;
-    right:1%;
-    width:40vw;
-    height:45vh;
+    top: 270px;
+    right: 10px;
+    width: 40%;
+    height: 300px;
 }
 div.logsign{
-    right:1%;
-    top:90vh;
-    width:40vw;
-    height:35vh;
+    right:10px;
+    top:670px;
+    width:40%;
+    height:260px;
 }
 div.thegame{
-    top:30vh;
-    left: 15vw;
-    width: 70vw;
-    height: 85vh;
+    top:250px;
+    left: 10%;
+    width: 80%;
+    height: 600px;
 }
 div.rules{
-    top:130vh;
-    left:15vw;
-    width:70vw;
-    height:auto;
+    top: 1000px;
+    left: 10%;
+    width: 80%;
+    height: auto;
 }
 div.fullLeader{
-    top:40vh;
-    width:55vw;
+    top:300px;
+    width:50%;
     height:auto;
 }
 div.spotlight{
-    right: 1%;
-    top:40vh;
-    width:40vw;
+    right: 10px;
+    top: 300px;
+    width: 40%;
     height:auto;
 }
 div.profile{
-    top:40vh;
-    width:40vw;
+    top:300px;
+    width:40%;
     height:auto;
 }
 div.settings{
-    right: 1%;
-    top:40vh;
-    width:55vw;
+    right: 10px;
+    top:300px;
+    width:50%;
     height:auto;
 }
 
@@ -147,7 +145,7 @@ body{
 }
 div.banner img, .banner2 img{
     width: 100%;
-    height: 100%;
+    height: 75px;
     object-fit: cover;
 }
 div.navbar, .navbar2{
@@ -209,7 +207,7 @@ div.about h2:hover{
 input[type=text]:focus, input[type=password]:focus{
     background-color:rgb(231, 176, 131);
 }
-input[type=text], input[type=password]{
+input[type=text], input[type=password], input[type=email]{
     width: 100%;
     padding: 5px 20px;
     margin: 8px 0;

@@ -6,6 +6,7 @@
         <link rel="stylesheet" href="css/gamelayout.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
         <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
         <script src="coffeecalc.js"></script>
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.css" />
@@ -24,14 +25,19 @@
             </ul>
         </div>
 
-        <h1>JitterBug Cafe: Mini Coffee Shop Simulator Game</h1>
+        <h1>JitterBug Cafe: Mini Coffee Shop Game</h1>
         <!--area that displays the game-->
         
         <div class="thegame">
-            <!--button click noises-->
-            <audio id="clickSound" src="video/button-noise.wav"></audio>
-
-            <input type="button" value ="start" id="start-button" onclick="playSound()">
+            <!--Sounds and noises-->
+            <audio id="backgroundMusic" src="video/cafe-mii-maker.mp3"></audio>
+            <audio id="clickSound" src="video/button-noise.wav"></audio><!--Button click noises-->
+            <audio id="correct" src="video/correct-choice.mp3"></audio><!--Correct input noises-->
+            <audio id="incorrect" src="video/wrong-buzzer.mp3"></audio><!--Incorrect input noises-->
+            <audio id="endsong" src="video/level-win.mp3"></audio><!--Level ended music-->
+            
+            <h3 id="read_rules">PLEASE READ RULES BELOW BEFORE STARTING GAME!</h3>
+            <button id="start-button" onclick="playSound()">START</button>
 
             <section id="finishlvl" style="display: none;">
                 <h3>LEVEL COMPLETE</h3>
@@ -56,9 +62,10 @@
                 <section class="ticket-section">
                     <h3>Randomized Drink Ticket</h3>
                     <p id="drink-ticket"></p>
+                    
                     <section class="controls-section">
-                        <button id="make-coffee-but" onclick="playSound()" onclick="makeCoffee()">Make Coffee</button>
-                        <button id="reset-coffee-but" onclick="playSound()" onclick="resetDrink()">Reset Coffee</button>
+                        <button id="make-coffee-but" onclick="playSound()">Make Coffee</button>
+                        <button id="reset-coffee-but" onclick="playSound()">Reset Coffee</button>
                     </section>
                 </section> 
 
@@ -67,11 +74,9 @@
                     <section id="ingredients-list"></section>
                 </section>
         
-                <section id="blend-section">
+                <section class="blend-section">
                     <h3>Choose Blend</h3>
-                    <button value="light" id="light" onclick="playSound()">Light</button>
-                    <button value="med" id="med" onclick="playSound()">Medium</button>
-                    <button value="dark" id="dark" onclick="playSound()">Dark</button>
+                    <section id="blend-list"></section>
                 </section>
         
                 <section class="coffee-cup-section">
@@ -92,17 +97,22 @@
                 <li>There are 5 levels to this game, with each harder than the last.</li>
                 <li>You will have a time limit of 3 minutes, which decreases by 30 seconds every level.</li>
                 <li>The complexity of the drink increases with level as well.</li>
-                <li>The goal is to make as many drinks (correctly) as you can within the time limit.</li>
+                <li>The goal is to make as many drinks (with ingredients in the correct order) as you can within the time limit.</li>
                 <li>For every correct cup made, you gain 50 points. Incorrectly subitted cups are -20 points.</li>
+                <li>The color of the "coffee cup" gives you a hint as to what type of blend it is asking for</li>
                 <li>You can reset your drink if you mess up.</li>
                 <li>When the level is finished, you can either retry the level, restart the game, or move on to the next.</li>
                 <li>When all levels are finished, total score will be determined, and rank given based on score.</li>
-                <li>You can change this score/rank by improving the scores of each level.</li>
                 <li>Your score and rank, along with your name will be posted on the leaderboard.</li>
                 <li>Only top 5 will be featured on the home page.</li>
-                <li>Leaderboard resets every week.</li>
+                <li>Background music: Mii Channel - Mii Plaza (Lofi Lia Remix)</li>
             </ol>
         </div>
+        <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-auth-compat.js"></script>
+        <script src="js/login.js"></script>
         <script src="js/coffeecalc.js"></script>
+        <script src="js/create_account.js"></script>
     </body>
 </html>

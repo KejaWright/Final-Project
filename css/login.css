@@ -1,0 +1,53 @@
+body {
+  background-image: url(../img/bgmain.png);
+}
+
+#login-header {
+  width: 100%;
+}
+
+h1 {
+  width: 40%;
+  margin: 0 auto;
+  font-family: "Playpen Sans", sans-serif;
+  font-size: 3em;
+}
+
+#login-area {
+  position: absolute;
+  left: 27%;
+  top: 20%;
+  background-color:  hsla(27, 70%, 82%, 1);
+  width: 40%;
+  height: 30%;
+  border-radius: 1em;
+  border: 3px solid black;
+  min-width: 250px;
+  min-height: 400px;
+  padding: 4em;
+}
+
+#login-area #login-form {
+  width: 65%;
+  margin: 5em auto;
+  padding: 2%;
+}
+
+#login-email-label, #login-password-label {
+  font-size: 1.5em;
+  font-family: "Playpen Sans", sans-serif;
+}
+
+#login-email, #login-password {
+  width: 100%;
+}
+
+#login-button,#login-with-google-button,#reset-button {
+  width: 100%;
+  margin-top: 6%;
+  font-size: 1.4em;
+  font-family: "Playpen Sans", sans-serif;
+  border-radius: 1em;
+}
+
+

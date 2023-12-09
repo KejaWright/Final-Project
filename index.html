@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset="utf-8">
+        <meta charset="utf-8" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/basiclayout.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
         <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.css" />
         <title>Jitterbug Cafe: Mini Coffee Shop Simulator Home Page</title>
@@ -16,7 +17,7 @@
         <div class="navbar">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="coffeeshop.html">Jitterbug Cafe Game</a></li>
+                <li><a href="coffeeshop.html" id="shopdisplay" style="color: gray; text-decoration: none; pointer-events: none;">Jitterbug Cafe Game</a></li>
                 <li><a href="fullLeaderboard.html">Full Leaderboard</a></li>
                 <li><a href="account.html">Account</a></li>
             </ul>
@@ -24,26 +25,42 @@
 
         <h1>JitterBug Cafe Homepage</h1>
         <!--About this project box-->
-        <div class="about" id="aboutourproj">
+        <div class="about">
             <h2 id="aboutproj">About this Project</h2>
             <!--showing and hiding bug report and about project when about is clicked-->
             <script>
                 $('#aboutproj').click(function(){
-                    $('#aboutourproj').children('p').toggle();
+                    $('#aboutthisproj').toggle();
+                    $('#bugrep').toggle();
+                    $('#buglist').toggle();
                 });
             </script>
-            <p id="aboutproj">This is a website that will lead to a game called "Jitterbug Cafe: Mini Coffee Shop Simulator". In this game, people will
+            <p id="aboutthisproj">This is a website that will lead to a game called "Jitterbug Cafe: Mini Coffee Shop Simulator". In this game, people will
                 create an account in order to play the game. The game will have 5 levels (for now) and will increase with difficulty. There
                 will be a tutorial page that will not garner a score. The score for the other levels will accumulate and give a play a rank
                 based on the total score (all 5 levels combined). Ranks A-D. Essentially a leaderboard that will display other's scores including
-                your own. This score will be reset every week essentially. Click "About" to see bug report.</p>
-            <p id="bugrep" style="display:none;">Bug Report:</p>
+                your own. This score will be reset every week essentially. Click "About this Project" to see bug report.</p>
+            <p id="bugrep" style="display:none;">Bug Report:
+            <ol id="buglist" style="display: none;">
+                <li>User refused to connect to database (fixed 12/6)</li>
+                <li>User refused to login even though credentials were correct (fixed 12/6)</li>
+                <li>Login page would just refresh and not send player to game page (fixed 12/6)</li>
+                <li>Game timer refused to countdown (fixed 12/7)</li>
+                <li>When game paused, music did not (fixed 12/7)</li>
+                <li>The list of rules randomly dissappeared (fixed 12/7)</li>
+                <li>Navbar dissappeared when clicking "About this Project" (fixed 12/8)</li>
+                <li>Inifinite positive (then negative) point glitch (fixed 12/8)</li>
+                <li>Rank doesn't work 100% correctly</li>
+                <li>Login with google button refused to work</li>
+                <li>After logging in and being toaken to gamepage, click other navbar links require re-sign in</li>
+            </ol>
+            </p>
         </div>
         <!--Developers box-->
         <div class="devs">
             <h2>Developers</h2>
-            <div class="item"><a href="https://github.com/KejaWright" target="_blank"><img src="https://avatars.githubusercontent.com/u/142939955?v=4"></a><span class="caption">Kéja W: Dev/Designer</span></div>
-            <div class="item"><a href="https://github.com/JaymeeKambel" target="_blank"><img src="https://avatars.githubusercontent.com/u/112044603?v=4"></a><span class="caption">Jaymee K: Dev/</span></div>
+            <div class="item"><a href="https://github.com/KejaWright" target="_blank"><img src="https://avatars.githubusercontent.com/u/142939955?v=4"></a><span class="caption">Kéja W: Designer/Game</span></div>
+            <div class="item"><a href="https://github.com/JaymeeKambel" target="_blank"><img src="https://avatars.githubusercontent.com/u/112044603?v=4"></a><span class="caption">Jaymee K: Dev</span></div>
             <div class="item"><a href="https://github.com/drewtuan" target="_blank"><img src="https://avatars.githubusercontent.com/u/76626471?v=4"></a><span class="caption">Drew N: Dev/Firebase</span></div> 
         </div>
         <!--Top 5 players box-->
@@ -53,22 +70,36 @@
         <!--Create Account/Login box-->
         <div class="logsign">
             <h2 id="createac">Create Account/ Login</h2>
-            <form id="newacc" style="width:100%; position:relative; top: -8vh;">
+            <input type="button" id="caswitch" value="MAKE NEW ACCOUNT"
+                style="background-color: orange; width:100%; height: 50px; border-radius: 25px;">
+                <p>OR</p>
+            <input type="button" id="lswitch" value="LOG IN WITH EXISTING ACCOUNT"
+                style="background-color: yellow; width:100%; height: 50px; border-radius: 25px;">
+                <script>
+                    $('#caswitch').click(function(){
+                        $('#caswitch').toggle();
+                        $('#lswitch').toggle();
+                        $('#newacc').toggle();
+                    });
+                    $('#lswitch').click(function(){
+                        window.location.href = "login.html"
+                    })
+                </script>
+            <form id="newacc" style="width:100%; position:relative; top: -12vh; display:none;">
                 <label for="email">Email:</label>
                 <input type="email" id="email" placeholder="name@domain.com" required>
                 <label for="username" class="form-control-label">Username:</label>
                 <input type="text" id="username" required minlength="5" maxlength="8">
                 <label for="password" class="form-control-label">Password:</label>
-                <input type="password" id="password" required minlength="8" maxlength="12"
-                    placeholder="password must have at least 1 number, 1 uppercase letter, and 1 lowercase letter"
-                    pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"><!--Max/min; Needs @least 1 num, upper/lowercase letter-->
+                <input type="password" id="password" required minlength="8" maxlength="12">
                 <input type="submit" id="create-account-button" value="create account"
                     style="background-color: orange; width:100%; height: 27px; border-radius: 25px;">
-                <p> or </p>
-                <input type="button" id="login-button" value="login"
-                    style="background-color: yellow; width:100%; height: 27px; border-radius: 25px;">
             </form>
         </div>
+        <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-auth-compat.js"></script>
+        <script src="js/login.js"></script>
         <script src="js/coffeecalc.js"></script>
         <script src="js/create_account.js"></script>
     </body>

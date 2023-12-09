@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/login.css">
+  <title>Document</title>
+</head>
+<body>
+  <div id="login-header">
+    <h1>Login to start playing your game!!</h1>
+  </div>
+
+  <div id="login-area">
+    <form id="login-form">
+      <label id="login-email-label" for="login-email">Email</label>
+      <input type="email" name="login-email" id="login-email">
+      <label id="login-password-label" for="login-password">Password</label>
+      <input type="password" name="login-password" id="login-password">
+      <input type="submit" name="login-button" id="login-button" value="Login">
+      <input type="button" name="login-with-google-button" id="login-with-google-button" value="Login with Google">
+    </form>  
+  </div>
+
+  <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-auth-compat.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

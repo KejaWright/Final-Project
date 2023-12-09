@@ -5,6 +5,7 @@
         <link rel="stylesheet" href="css/basiclayout.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
         <link href="https://fonts.googleapis.com/css2?family=Playpen+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.css" />
         <title>Your Account</title>
@@ -16,7 +17,7 @@
         <div class="navbar">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="coffeeshop.html">Jitterbug Cafe Game</a></li>
+                <li><a href="coffeeshop.html" id="shopdisplay" style="color: gray; text-decoration: none; pointer-events: none;">Jitterbug Cafe Game</a></li>
                 <li><a href="fullLeaderboard.html">Full Leaderboard</a></li>
                 <li><a href="account.html">Account</a></li>
             </ul>
@@ -39,5 +40,9 @@
                 <input type="button" value="delete account" style="background-color: red; color: white; width:47%; height:5vh; border-radius: 25px;">
             </form>
         </div>
+        <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-auth-compat.js"></script>
+        <script src="js/login.js"></script>
     </body>
 </html>
