@@ -55,7 +55,7 @@ h2{
     top:-60px;
     height:35px;
     position:relative;
-    width:360px;
+    width:70%;
     left:10%;
     border-radius: 20px 20px 0px 0px;
 	background-color: var(--main-tab-color);
@@ -67,7 +67,14 @@ div.about{
     width: 50%;
     height: 360px;
 }
-
+#bugrep{
+    position: relative;
+    top: -66px;
+}
+#buglist{
+    position: relative;
+    top:-60px;
+}
 div.devs{
     left: 10px;
     top: 710px;
@@ -130,6 +137,9 @@ div.profile{
     top:300px;
     width:40%;
     height:auto;
+}
+.profile p{
+    font-size: 2rem;
 }
 div.settings{
     right: 10px;

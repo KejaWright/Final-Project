@@ -13,6 +13,7 @@
         <title>Jitterbug Cafe: Mini Coffee Shop Simulator Game</title>
     </head>
     <body>
+        
         <!--picture banner above navigational bar-->
         <div class="banner2"><img src="https://assets.epicurious.com/photos/63e54a0664e14d52936a2937/16:9/w_2560%2Cc_limit/CoffeeSubscriptions_IG_V1_030922_6350_V1_final.jpg" style="position: absolute;"></div>
         <!--navigational bar-->
@@ -41,11 +42,13 @@
 
             <section id="finishlvl" style="display: none;">
                 <h3>LEVEL COMPLETE</h3>
-                <label>Current Score: <span id="current-score">0</span></label>
-                <label>Total Score: <span id="total-score">0</span></label>
+                <label id="cs">Current Score: <span id="current-score">0</span></label>
+                <label id="ts">Total Score: <span id="total-score">0</span></label>
                 <button id="retry">Retry</button>
                 <button id="next-lvl">Next Level</button>
                 <button id="res-game">Reset Game</button>
+                <label id="please" style="display: none;">Please enter your username to update your score</label><input type="text" name="final username" id="final_username" style="display: none;">
+                <button id="user_sub" style="display: none;">SUBMIT USERNAME TO SAVE YOUR FINAL SCORE</button>
             </section>
 
             <section id="display-game" style="display: none;">
@@ -95,7 +98,7 @@
             <ol>
                 <li>This game requires you to be signed in to play and record scores.</li>
                 <li>There are 5 levels to this game, with each harder than the last.</li>
-                <li>You will have a time limit of 3 minutes, which decreases by 30 seconds every level.</li>
+                <li>You will have a time limit of 2 minutes, which decreases by 20 seconds every level.</li>
                 <li>The complexity of the drink increases with level as well.</li>
                 <li>The goal is to make as many drinks (with ingredients in the correct order) as you can within the time limit.</li>
                 <li>For every correct cup made, you gain 50 points. Incorrectly subitted cups are -20 points.</li>
@@ -113,6 +116,5 @@
         <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-auth-compat.js"></script>
         <script src="js/login.js"></script>
         <script src="js/coffeecalc.js"></script>
-        <script src="js/create_account.js"></script>
     </body>
 </html>

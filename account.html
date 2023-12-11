@@ -17,7 +17,7 @@
         <div class="navbar">
             <ul>
                 <li><a href="index.html">Home</a></li>
-                <li><a href="coffeeshop.html" id="shopdisplay" style="color: gray; text-decoration: none; pointer-events: none;">Jitterbug Cafe Game</a></li>
+                <li><a href="coffeeshop.html" id="shopdisplay">Jitterbug Cafe Game</a></li>
                 <li><a href="fullLeaderboard.html">Full Leaderboard</a></li>
                 <li><a href="account.html">Account</a></li>
             </ul>
@@ -26,23 +26,22 @@
         <!--Profile box-->
         <div class="profile">
             <h2>Profile</h2>
-            <!--should display name and email of player thats all-->
-            <input type="button" value="Logout" style="background-color:greenyellow; width:47%; height: 5vh; border-radius: 25px;">
+            <p id="profile_display"></p>
+            <input type="submit" value="Logout" id="sign-out" style="background-color:greenyellow; width:100%; height: 5vh; border-radius: 25px;">
         </div>
         <!--Settings box-->
         <div class="settings">
             <h2>Settings</h2>
             <form style="position:relative; top:-6vh;">
                 <h3>DELETE ACCOUNT</h3>
-                    <label>Enter Username:</label><input type="text" id="newname">
-                <h3>Change Password</h3>
-                    <label>Enter Email:</label><input type="email" id="retypemail"><label>Enter Password:</label><input type="password" id="rtypepass">
-                <input type="button" value="delete account" style="background-color: red; color: white; width:47%; height:5vh; border-radius: 25px;">
+                    <label>Enter Username:</label><input type="text" id="newname" placeholder="Hopefully you remembered your Username :/" required>
+                <input type="button" id="delete_account" value="delete account" style="background-color: red; color: white; width:100%; height:5vh; border-radius: 25px;">
             </form>
         </div>
         <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app-compat.js"></script>
         <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore-compat.js"></script>
         <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-auth-compat.js"></script>
         <script src="js/login.js"></script>
+
     </body>
 </html>

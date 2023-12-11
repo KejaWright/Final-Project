@@ -14,7 +14,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 // function that sends the data to be authenticated
-  $("#newacc").submit(function(e) {
+  $('#newacc').submit(function(e) {
     e.preventDefault();
 
     var email = document.getElementById("email").value;
@@ -37,16 +37,14 @@ firebase.initializeApp(firebaseConfig);
         }).then(() => {
           console.log(user.displayName, "You are signed up");
           //window.location.href = "Login.html";
-
           var date = new Date();
-
+          var totalScore = 0;
           var playerinformation = {
             // list what you want to put in
             "username": user.displayName,
             "email": email,
             "signupDate": date,
-            "score": "",
-            "rank": "",
+            "score": totalScore
           };
 
           var db = firebase.firestore();

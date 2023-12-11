@@ -30,7 +30,7 @@ $('#start-button').click(function(){
     let currentScore = 0;
     let curfinscore = 0;
     let totalScore = 0;
-    let seconds = 180;
+    let seconds = 120;
     let countdown;
     let chosenIngred = [];
     let rtarray = [];
@@ -51,9 +51,9 @@ $('#start-button').click(function(){
             } else {//LVL END SCREEN STUFF//
                 clearInterval(countdown);
                 updateScore();
-                gameover();
                 $('#display-game').toggle();
                 $('#finishlvl').toggle();
+                gameover();
                 const sound = document.getElementById('endsong');
                 sound.play();
             }
@@ -67,7 +67,7 @@ $('#start-button').click(function(){
         clearInterval(countdown);
         console.log("Game paused.");
         backMus.pause();
-        if (pauseclick ==2){
+        if (pauseclick == 2){
             backMus.play()
             countdown = setInterval(updateCountdown, 1000);
             console.log(pauseclick);
@@ -79,7 +79,7 @@ $('#start-button').click(function(){
     //FUNCTION FOR THE BUTTON NAMED NEXT LVL//
     $('#next-lvl').click(function nextLevel() {  
         if (currentLevel < 5) {
-            seconds = 180 - currentlvltime*30 ; // Decrease the time limit for each level
+            seconds = 120 - currentlvltime*30 ; // Decrease the time limit for each level
             countdown = setInterval(updateCountdown, 1000); 
             rtarray = [];
             chosenIngred = [];
@@ -108,7 +108,7 @@ $('#start-button').click(function(){
         document.getElementById('current-level').innerText = currentLevel;
         currentScore = 0;
         curfinscore = 0;
-        seconds = 180 - currentlvltime*30;
+        seconds = 120 - currentlvltime*20;
         document.getElementById('currentscore').innerText = currentScore;
         document.getElementById('totalscore').innerText = totalScore;
         document.getElementById('timer').innerText = seconds;
@@ -127,7 +127,7 @@ $('#start-button').click(function(){
         currentScore = 0;
         curfinscore = 0;
         totalScore = 0;
-        seconds = 180;
+        seconds = 120;
         document.getElementById('current-level').innerText = currentLevel;
         document.getElementById('currentscore').innerText = currentScore;
         document.getElementById('totalscore').innerText = totalScore;
@@ -295,53 +295,38 @@ $('#start-button').click(function(){
     //AFTER THE GAME FINISHES//
     function gameover(){
         const user = firebase.auth().currentUser;
-        if(currentLevel == 5 && seconds > 1){
+        if(currentLevel == 5 && seconds < 1){
+            $('#please').toggle();
+            $('#final_username').toggle();
+            $('#user_sub').toggle();
             if (user) {
-                // Get the user's unique ID (UID)
-                const userId = user.uid;
-                // Reference to the user's data in the Realtime Database
-                const userRef = firebase.database().ref('users/' + userId);
-                // Assume you want to update the user's taskCompleted field
-                userRef.update({
-                    "score": totalScore,
-                    "rank": rank
+                $('#user_sub').click(function(){
+                    // Get the user's unique ID (UID)
+                    var firestore = firebase.firestore();
+                    var name = document.getElementById('final_username').value;
+                    const userId = user.uid;
+                    // Reference to the user's data in the Realtime Database
+                    var user2 = firestore.collection("Player Logins").doc(name);//from acutal database
+                    
+                    // Assume you want to update the user's taskCompleted field
+                    user2.update({
+                        "score": totalScore
+                    })
+                    .then(() => {
+                    console.log('score and rank updated in the database');
+                    alert('Score has been added successfully...');
+                    })
+                    .catch(error => {
+                    console.error('Error updating score and rank', error);
+                    });
+                    
                 })
-                .then(() => {
-                  console.log('score and rank updated in the database');
-                })
-                .catch(error => {
-                  console.error('Error updating score and rank', error);
-                });
-            }else {
-                console.log('No user is currently logged in.');
-            }
-            //add totscore and rank to user from database
-            userDocRef.update(userinfo)
-            .then(() => {
-                console.log('User information updated in Firestore');
-            })
-            .catch(error => {
-                console.error('Error updating user information:', error);
-            });
-        }
-    };
+                }else {
+                    console.log('No user is currently logged in.');
+                }
+        };
+    }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//FOR LEADERBOARD//
 
-    //RANK DETERMINATION//
-    let rank;
-    switch (true) {
-        case totalScore >= 5000:
-          rank = "A";
-          break;
-        case totalScore >= 4000:
-          rank = "B";
-          break;
-        case totalScore >= 3000:
-          rank = "C";
-          break;
-        case totalScore >= 2000:
-          rank = "D";
-          break;
-        default:
-          rank = "F";
-      }
 });
