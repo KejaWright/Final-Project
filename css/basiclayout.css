@@ -25,24 +25,16 @@ div.banner, div.navbar, div.banner2, div.navbar2{
     width: 100%;
     z-index: 5;
 }
-div.banner{
+div.banner, .banner2{
     position:fixed;
     top:0vh;
     height:10vh;
 }
-div.banner2{
-    position: absolute;
-    top:0vh;
-    height:10vh;
-}
-div.navbar{
+div.navbar, .navbar2{
     position:fixed;
     top: 74px;
 }
-div.navbar2{
-    position: absolute;
-    top:10vh;
-}
+
 h1{
     color:white;
     background-color: black;

@@ -61,6 +61,9 @@ function displayUserInfo(user) {
 firebase.auth().onAuthStateChanged(function(user) {
    if (user) {
       // User is signed in.
+      const exist = document.getElementById('shopdisplay');
+      exist.style.color = " rgb(250, 117, 8)";
+      exist.style.pointerEvents = "auto";
       displayUserInfo(user);
    } else {
       console.log("There is no user logged in.");

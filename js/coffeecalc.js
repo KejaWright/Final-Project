@@ -79,7 +79,8 @@ $('#start-button').click(function(){
     //FUNCTION FOR THE BUTTON NAMED NEXT LVL//
     $('#next-lvl').click(function nextLevel() {  
         if (currentLevel < 5) {
-            seconds = 120 - currentlvltime*30 ; // Decrease the time limit for each level
+            currentlvltime++;
+            seconds = 120 - currentlvltime*20 ; // Decrease the time limit for each level
             countdown = setInterval(updateCountdown, 1000); 
             rtarray = [];
             chosenIngred = [];
@@ -87,7 +88,6 @@ $('#start-button').click(function(){
             currentLevel++;
             document.getElementById('current-level').innerText = currentLevel;
             totalScore = totalScore;
-            currentlvltime++;
             currentScore = 0;
             $('#display-game').toggle();
             $('#finishlvl').toggle(); 
@@ -128,6 +128,7 @@ $('#start-button').click(function(){
         curfinscore = 0;
         totalScore = 0;
         seconds = 120;
+        currentlvltime = 0;
         document.getElementById('current-level').innerText = currentLevel;
         document.getElementById('currentscore').innerText = currentScore;
         document.getElementById('totalscore').innerText = totalScore;
