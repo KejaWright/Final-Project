@@ -289,9 +289,9 @@ $('#start-button').click(function(){
         messagingSenderId: "691914384953",
         appId: "1:691914384953:web:b910332ffe97e93ef50fe8",
         measurementId: "G-W41900LN38"
-      };
-      // Initialize Firebase
-      firebase.initializeApp(firebaseConfig);
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
 
     //AFTER THE GAME FINISHES//
     function gameover(){
@@ -300,16 +300,17 @@ $('#start-button').click(function(){
             $('#please').toggle();
             $('#final_username').toggle();
             $('#user_sub').toggle();
+            //checks to see if user exists
             if (user) {
+                //adds to the actual database based on what the username inputed says (if username exists in database)//
                 $('#user_sub').click(function(){
-                    // Get the user's unique ID (UID)
+                    
                     var firestore = firebase.firestore();
                     var name = document.getElementById('final_username').value;
                     const userId = user.uid;
-                    // Reference to the user's data in the Realtime Database
-                    var user2 = firestore.collection("Player Logins").doc(name);//from acutal database
                     
-                    // Assume you want to update the user's taskCompleted field
+                    var user2 = firestore.collection("Player Logins").doc(name);//from acutal database
+                    // UPDATE USER'S SCORE INFORMATION
                     user2.update({
                         "score": totalScore
                     })
@@ -320,14 +321,11 @@ $('#start-button').click(function(){
                     .catch(error => {
                     console.error('Error updating score and rank', error);
                     });
-                    
                 })
                 }else {
                     console.log('No user is currently logged in.');
                 }
         };
     }
-//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//FOR LEADERBOARD//
-
 });
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

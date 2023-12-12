@@ -16,7 +16,7 @@
 /*01: Layouts*/
 div.about, div.smallLeader, div.devs, div.logsign, div.thegame, div.rules, div.fullLeader, div.spotlight, div.profile, div.settings{
     position: absolute;
-    padding: 10px;
+    padding: 5px;
     border-radius: 25px;
 }
 div.banner, div.navbar, div.banner2, div.navbar2{
@@ -96,6 +96,13 @@ div.smallLeader{
     width: 40%;
     height: 300px;
 }
+.smallLeader table{
+    width:100%;
+    text-align: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.5rem;
+    background-color: white;
+}
 div.logsign{
     right:10px;
     top:670px;
@@ -119,11 +126,22 @@ div.fullLeader{
     width:50%;
     height:auto;
 }
+.fullLeader table{
+    width:100%;
+    text-align: center;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 1.5rem;
+    background-color: white;
+}
 div.spotlight{
     right: 10px;
     top: 300px;
     width: 40%;
     height:auto;
+}
+.spotlight p{
+    text-align: center;
+    font-size: 1.5rem;
 }
 div.profile{
     top:300px;

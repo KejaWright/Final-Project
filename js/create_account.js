@@ -75,3 +75,38 @@ firebase.auth().onAuthStateChanged(function(user) {
      console.log("There is no user logged in.");
   }
 });
+
+/////////////////////////////////////////////////////////////////
+///FOR MINI LEADERBOARD--I PUT THIS HERE SINCE THE INDEX ONLY WANT TO SE ONE JS FILE APPARENTLY///
+firebase.initializeApp(firebaseConfig);
+var db = firebase.firestore();
+var playerLoginsRef = db.collection("Player Logins");
+
+function topFive(){
+    playerLoginsRef.orderBy("score", "desc").limit(5).get().then((querySnapshot) => {
+        var miniBody = document.getElementById("miniboardBody");
+  
+        // Clear existing rows
+        miniBody.innerHTML = "";
+        var miniplace = 1;
+        
+        querySnapshot.forEach((doc) => {
+        var username = doc.id;
+        var score = doc.data().score;
+  
+        // Create a new row
+        var minirow = miniBody.insertRow();
+        
+        // Add cells to the row
+        var miniplaceCell = minirow.insertCell(0)
+        var miniusernameCell = minirow.insertCell(1);
+        var miniscoreCell = minirow.insertCell(2);
+  
+        // Push this specific information into the rows of the table
+        miniplaceCell.innerHTML = miniplace++;
+        miniusernameCell.innerHTML = username;
+        miniscoreCell.innerHTML = score;
+        });
+    })
+  }
+topFive();

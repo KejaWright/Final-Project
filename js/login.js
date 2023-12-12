@@ -56,7 +56,7 @@ function displayUserInfo(user) {
   var score = user.totalScore;
 
   // Display user information in the HTML
-  document.getElementById("profile_display").innerHTML = "Welcome, " + displayName + " (" + email + ")";
+  document.getElementById("profile_display").innerText = "Welcome, " + displayName + " (" + email + ")";
 }
 firebase.auth().onAuthStateChanged(function(user) {
    if (user) {
@@ -118,3 +118,54 @@ $('#delete_account').click(function(userId){
     alert('This Username does not exist');
   }
 });
+
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//FOR BIG MAIN LEADERBOARD--I PUT THIS HERE BECAUSE THE COFFEECALC KEPT HAVING PROBLEMS//
+// Initialize Firebase
+var db = firebase.firestore();
+var playerLoginsRef = db.collection("Player Logins");
+// Function gets scores from database and updates the table by forcing the information in.
+function boardScores(){
+  playerLoginsRef.orderBy("score", "desc").get().then((querySnapshot) => {
+      var tableBody = document.getElementById("leaderboardBody");
+
+      // Clear existing rows
+      tableBody.innerText = "";
+      var place = 1;
+      
+      querySnapshot.forEach((doc) => {
+      var username = doc.id;
+      var score = doc.data().score;
+
+      // Create a new row
+      var row = tableBody.insertRow();
+      
+      // Add cells to the row
+      var placeCell = row.insertCell(0)
+      var usernameCell = row.insertCell(1);
+      var scoreCell = row.insertCell(2);
+
+      // Push this specific information into the rows of the table
+      placeCell.innerHTML = place++;
+      usernameCell.innerHTML = username;
+      scoreCell.innerHTML = score;
+      });
+  });
+}
+boardScores();
+
+//Get top player from database--BASICALLY GET THE PERSON WITH THE HIGHEST SCORE//
+function topPlayer(){
+  playerLoginsRef.orderBy("score", "desc").limit(1).get().then((querySnapshot) => {
+    var TopProf = document.getElementById("spotlight_display");
+    
+    querySnapshot.forEach((doc) => {
+      var username = doc.id;
+      var score = doc.data().score;
+
+      //Place content in spotlight_display//
+      TopProf.innerText = "First Place: " +username+ " With Score: " +score;
+      });
+  });
+}
+topPlayer();

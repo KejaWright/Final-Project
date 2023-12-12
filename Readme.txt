@@ -27,8 +27,8 @@ Things that need to be on the site:
     
     >Name and email address of each developers,  name of project leader
         >KW: keja@usca.edu
-        >JK: 
-        >AN: 
+        >JK: jkambel@usca.edu
+        >AN: andrewtn@usca.edu
     
     >A clear description of the project.
         >This is a website that will lead to a game called "Jitterbug Cafe: Mini Coffee Shop Simulator". In this game, people will

@@ -8,7 +8,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.css" />
-        <title>Jitterbug Cafe: Mini Coffee Shop Simulator Game</title>
+        <title>Jitterbug Cafe: Mini Coffee Shop Leaderboard</title>
     </head>
     <body>
         <!--picture banner above navigational bar-->
@@ -26,7 +26,7 @@
         <!--Full Leaderboard box-->
         <div class="fullLeader">
             <h2>Full Leaderboard</h2>
-            <table>
+            <table id="scoreboard" border="1">
                 <thead>
                     <tr>
                         <th>Placement</th>
@@ -42,6 +42,7 @@
         <!--Player Spotlight box-->
         <div class="spotlight">
             <h2>Player Spotlight</h2>
+            <p id="spotlight_display"></p>
         </div>
         <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-app-compat.js"></script>
         <script src="https://www.gstatic.com/firebasejs/10.6.0/firebase-firestore-compat.js"></script>

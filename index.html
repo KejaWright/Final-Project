@@ -8,7 +8,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/4.0.0/firebaseui.css" />
-        <title>Jitterbug Cafe: Mini Coffee Shop Simulator Home Page</title>
+        <title>Jitterbug Cafe: Mini Coffee Shop Home Page</title>
     </head>
     <body>
         <!--picture banner above navigational bar-->
@@ -35,37 +35,50 @@
                     $('#buglist').toggle();
                 });
             </script>
-            <p id="aboutthisproj">This is a website that will lead to a game called "Jitterbug Cafe: Mini Coffee Shop Simulator". In this game, people will
-                create an account in order to play the game. The game will have 5 levels (for now) and will increase with difficulty. There
-                will be a tutorial page that will not garner a score. The score for the other levels will accumulate and give a play a rank
-                based on the total score (all 5 levels combined). Ranks A-D. Essentially a leaderboard that will display other's scores including
-                your own. This score will be reset every week essentially. Click "About this Project" to see bug report.</p>
+            <p id="aboutthisproj">This is a website that will lead to a game called "Jitterbug Cafe: Mini Coffee Shop". In this game, people will
+                create an account in order to play the game. The game will have 5 levels (for now) and will increase with difficulty. More info about the
+                game can be read through the rules of the game once you have signed up and logged in (which will auto direct you to the game afterwards).
+                Essentially a leaderboard that will display other's scores including your own. Account can be signed out or deleted in the "account"
+                section. Click "About this Project" to see bug report.</p>
+                
             <p id="bugrep" style="display:none;">Bug Report:
-            <ol id="buglist" style="display: none;">
-                <li>User refused to connect to database (fixed 12/6)</li>
-                <li>User refused to login even though credentials were correct (fixed 12/6)</li>
-                <li>Login page would just refresh and not send player to game page (fixed 12/6)</li>
-                <li>Game timer refused to countdown (fixed 12/7)</li>
-                <li>When game paused, music did not (fixed 12/7)</li>
-                <li>The list of rules randomly dissappeared (fixed 12/7)</li>
-                <li>Navbar dissappeared when clicking "About this Project" (fixed 12/8)</li>
-                <li>Inifinite positive (then negative) point glitch (fixed 12/8)</li>
-                <li>Rank doesn't work 100% correctly</li>
-                <li>Login with google button refused to work</li>
-                <li>After logging in and being toaken to gamepage, click other navbar links require re-sign in</li>
-            </ol>
+                <ol id="buglist" style="display: none;">
+                    <li>User refused to connect to database (fixed 12/6)</li>
+                    <li>User refused to login even though credentials were correct (fixed 12/6)</li>
+                    <li>Login page would just refresh and not send player to game page (fixed 12/6)</li>
+                    <li>Game timer refused to countdown (fixed 12/7)</li>
+                    <li>When game paused, music did not (fixed 12/7)</li>
+                    <li>The list of rules randomly dissappeared (fixed 12/7)</li>
+                    <li>Navbar dissappeared when clicking "About this Project" (fixed 12/8)</li>
+                    <li>Inifinite positive (then negative) point glitch (fixed 12/8)</li>
+                    <li>Rank doesn't work 100% correctly(deleted it)</li>
+                    <li>Login with google button refused to work (deleted it)</li>
+                    <li>After logging in and being toaken to gamepage, click other navbar links require re-sign in (fixed 12/11)</li>
+                </ol>
             </p>
         </div>
         <!--Developers box-->
         <div class="devs">
             <h2>Developers</h2>
-            <div class="item"><a href="https://github.com/KejaWright" target="_blank"><img src="https://avatars.githubusercontent.com/u/142939955?v=4"></a><span class="caption">Kéja W: Designer/Game</span></div>
-            <div class="item"><a href="https://github.com/JaymeeKambel" target="_blank"><img src="https://avatars.githubusercontent.com/u/112044603?v=4"></a><span class="caption">Jaymee K: Dev/Leaderboard</span></div>
-            <div class="item"><a href="https://github.com/drewtuan" target="_blank"><img src="https://avatars.githubusercontent.com/u/76626471?v=4"></a><span class="caption">Drew N: Dev/Firebase</span></div> 
+            <div class="item"><a href="https://github.com/KejaWright" target="_blank"><img src="https://avatars.githubusercontent.com/u/142939955?v=4"></a><span class="caption">Kéja W: Leader/Designer/Game</span></div>
+            <div class="item"><a href="https://github.com/JaymeeKambel" target="_blank"><img src="https://avatars.githubusercontent.com/u/112044603?v=4"></a><span class="caption">Jaymee K: Leaderboard/Editor</span></div>
+            <div class="item"><a href="https://github.com/drewtuan" target="_blank"><img src="https://avatars.githubusercontent.com/u/76626471?v=4"></a><span class="caption">Drew N: Firebase/Editor</span></div> 
         </div>
         <!--Top 5 players box-->
         <div class="smallLeader">
             <h2>Top 5 Players</h2>
+            <table id="miniscoreboard" border="1">
+                <thead>
+                    <tr>
+                        <th>Placement</th>
+                        <th>Player Name</th>
+                        <th>High Score</th>
+                    </tr>
+                  </thead>
+                  <tbody id="miniboardBody">
+                    <!-- Leaderboard rows will go here -->
+                  </tbody>
+            </table>
         </div>
         <!--Create Account/Login box-->
         <div class="logsign">
