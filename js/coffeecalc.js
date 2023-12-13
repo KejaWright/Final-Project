@@ -135,6 +135,8 @@ $('#start-button').click(function(){
         $('#display-game').toggle();
         $('#finishlvl').toggle(); 
         updateCountdown();
+        updateDrinkTicket()
+        gameover();
     })
 
     //FUNCTION FOR THE BUTTON NAMED RESET GAME//
@@ -156,6 +158,8 @@ $('#start-button').click(function(){
         $('#display-game').toggle();
         $('#finishlvl').toggle(); 
         updateCountdown();
+        updateDrinkTicket()
+        gameover();
     })
 
     //STUFF FOR REGISTERING CLICKING THE AVAILABLE BUTTONS FOR THE INGREDIENTS//
