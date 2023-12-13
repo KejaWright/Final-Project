@@ -14,13 +14,13 @@ h3, label{
 }
 #display-game{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: .75fr 1fr 1fr 1fr;
     grid-template-rows: .5fr 2.5fr 2.5fr 1fr;
     background-color: white;
     top: 250px;
     left: 10%;
     width: 100%;
-    height: 600px;
+    height: 520px;
 }
 #top-shelf{
     padding:10px;
@@ -70,7 +70,7 @@ section.score-section p{
     font-size: .80rem;
     border-style:ridge;
     width: 98%;
-    height: 370px;
+    height: 300px;
     background-color: white;
 }
 #make-coffee-but, #reset-coffee-but{
@@ -84,7 +84,7 @@ section.score-section p{
     top:100px;
     left: 20%;
     width: 60%;
-    height: 320px;
+    height: 260px;
     background-color: #8B4513;
     border-radius: 10px;
     position: relative;
@@ -129,7 +129,7 @@ input[type=button]:hover, button:hover{
     position: relative;
     top: 24px;
     width: 100%;
-    height: 95px;
+    height: 75px;
     border-radius: 10px;
 }
 #please{

@@ -4,7 +4,6 @@
 02: Color
 03: Font
 04: Nice Decoration
-05: Images & Table
 */
 
 /*00: Variables*/
@@ -25,13 +24,22 @@ div.banner, div.navbar, div.banner2, div.navbar2{
     width: 100%;
     z-index: 5;
 }
-div.banner, .banner2{
+div.banner{ 
     position:fixed;
     top:0vh;
     height:10vh;
 }
-div.navbar, .navbar2{
+.banner2{
+    position: absolute;
+    top:0vh;
+    height:10vh;
+}
+div.navbar{
     position:fixed;
+    top: 74px;
+}
+.navbar2{
+    position:absolute;
     top: 74px;
 }
 
@@ -111,16 +119,21 @@ div.logsign{
 }
 div.thegame{
     top:250px;
-    left: 10%;
-    width: 80%;
-    height: 600px;
+    left: 5%;
+    width: 60%;
+    height: 520px;
 }
 div.rules{
-    top: 1000px;
-    left: 10%;
-    width: 80%;
+    top: 250px;
+    left: 70%;
+    width: 25%;
     height: auto;
+    font-size: .75rem;
 }
+.rules h2{
+    top: -55px;
+}
+
 div.fullLeader{
     top:300px;
     width:50%;
@@ -183,7 +196,7 @@ p, form, span, ol{
 }
 
 /*03: Font*/
-h1, h2, h4{
+h1, h2{
     font-family: "Sofia", sans-serif;
     text-align: center;
 }
@@ -191,10 +204,6 @@ p, ul, span{
     font-family: "Playpen Sans", sans-serif;
     text-align: center;
     font-weight: bold;
-}
-h4{
-    font-size: 2rem;
-    animation: 5s alternate infinite copycolor;
 }
 
 ol{
@@ -234,4 +243,3 @@ input[type=text], input[type=password], input[type=email]{
     box-sizing: border-box;
 }
 
-/*05: Images & Table*/

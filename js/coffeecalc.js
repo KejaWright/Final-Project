@@ -63,17 +63,36 @@ $('#start-button').click(function(){
     //PAUSE BUTTON ONLY PAUSE BECAUSE OF ALERT BE AWARE//
     var pauseclick = 0;
     $('#pause-button').click(function(){
+        var makedis = document.getElementById('make-coffee-but')
+        var resthis = document.getElementById('reset-coffee-but')
         pauseclick += 1
         clearInterval(countdown);
         console.log("Game paused.");
         backMus.pause();
+        var buttons = document.getElementsByClassName("ingredient");
+        for (var i = 0; i < buttons.length; i++) {
+            buttons[i].disabled = true;
+        }
+        var blendbuttons = document.getElementsByClassName("blend");
+        for (var i = 0; i < blendbuttons.length; i++) {
+            blendbuttons[i].disabled = true;
+        }
+        makedis.disabled = true;
+        resthis.disabled = true;
         if (pauseclick == 2){
+            makedis.disabled = false;
+            resthis.disabled = false;
+            for (var i = 0; i < buttons.length; i++) {
+                buttons[i].disabled = false;
+            }
+            for (var i = 0; i < blendbuttons.length; i++) {
+                blendbuttons[i].disabled = false;
+            }
             backMus.play()
             countdown = setInterval(updateCountdown, 1000);
             console.log(pauseclick);
             pauseclick = 0;
-        }
-        
+        } 
     })
 
     //FUNCTION FOR THE BUTTON NAMED NEXT LVL//
