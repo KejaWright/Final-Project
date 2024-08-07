@@ -1,4 +1,4 @@
-//rtghy@gmail.com 123werZXS;']
+//rtghy@gmail.com 123werZXS;'] //new database as per KejaWright
 
 const firebaseConfig = {
   apiKey: "AIzaSyAV9Jm6YTmnLz9jGqxXfpfWxUd-L6tT4ak",
@@ -54,7 +54,6 @@ firebase.initializeApp(firebaseConfig);
           });
         });
         // put the information after you callback (then())
-
       })
       .catch(error => {
         var errorCode = error.code;

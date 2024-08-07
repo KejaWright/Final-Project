@@ -1,3 +1,4 @@
+//new databasechanges as per Keja Wright
 const firebaseConfig = {
   apiKey: "AIzaSyAV9Jm6YTmnLz9jGqxXfpfWxUd-L6tT4ak",
   authDomain: "jitterbugaccountinfo.firebaseapp.com",
