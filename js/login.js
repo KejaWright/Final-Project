@@ -1,11 +1,11 @@
 const firebaseConfig = {
-  apiKey: "AIzaSyD3xx7nx749QdAVXwvKw6V4IRIAlTUO-Lk",
-  authDomain: "csci-225-final-project-a-bb0d1.firebaseapp.com",
-  projectId: "csci-225-final-project-a-bb0d1",
-  storageBucket: "csci-225-final-project-a-bb0d1.appspot.com",
-  messagingSenderId: "691914384953",
-  appId: "1:691914384953:web:b910332ffe97e93ef50fe8",
-  measurementId: "G-W41900LN38"
+  apiKey: "AIzaSyAV9Jm6YTmnLz9jGqxXfpfWxUd-L6tT4ak",
+  authDomain: "jitterbugaccountinfo.firebaseapp.com",
+  projectId: "jitterbugaccountinfo",
+  storageBucket: "jitterbugaccountinfo.appspot.com",
+  messagingSenderId: "775646285550",
+  appId: "1:775646285550:web:30c935dd3160e0d62f2dff",
+  measurementId: "G-JB8GYEYL8X"
 };
 
 // Initialize Firebase
